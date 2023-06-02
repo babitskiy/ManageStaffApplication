@@ -16,9 +16,9 @@
             <TextBlock Text="Name" />
             <TextBox Name="NameBlock" Text="{Binding PositionName}"/>
             <TextBlock Text="Salary" />
-            <TextBox Name="SalaryBlock" PreviewTextInput="PreviewTextInput" Text="{Binding PositionSalary}" />
+            <TextBox Name="SalaryBlock" Text="{Binding PositionSalary}" />
             <TextBlock Text="Max of vacancies" />
-            <TextBox Name="MaxNumberBlock" PreviewTextInput="PreviewTextInput" Text="{Binding PositionMaxNumber}" />
+            <TextBox Name="MaxNumberBlock" Text="{Binding PositionMaxNumber}" />
             <TextBlock Text="Department" />
             <ComboBox ItemsSource="{Binding AllDepartments}" 
                       DisplayMemberPath="Name"

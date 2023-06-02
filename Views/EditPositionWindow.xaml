@@ -16,9 +16,9 @@
             <TextBlock Text="New name" />
             <TextBox Text="{Binding PositionName}" />
             <TextBlock Text="New salary" />
-            <TextBox Text="{Binding PositionSalary}" PreviewTextInput="PreviewTextInput"/>
+            <TextBox Text="{Binding PositionSalary}" />
             <TextBlock Text="New max number" />
-            <TextBox Text="{Binding PositionMaxNumber}" PreviewTextInput="PreviewTextInput" />
+            <TextBox Text="{Binding PositionMaxNumber}" />
             <TextBlock Text="New department" />
             <ComboBox ItemsSource="{Binding AllDepartments}" 
                       DisplayMemberPath="Name"

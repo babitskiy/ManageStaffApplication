@@ -18,7 +18,7 @@
             <TextBlock Text="Surname" />
             <TextBox Name="SurnameBlock" Text="{Binding EmployeeSurname}" />
             <TextBlock Text="Phone" />
-            <TextBox PreviewTextInput="PreviewTextInput" Text="{Binding EmployeePhone}" />
+            <TextBox Text="{Binding EmployeePhone}" />
             <TextBlock Text="Position" />
             <ComboBox ItemsSource="{Binding AllPositions}" 
                       DisplayMemberPath="Name"
