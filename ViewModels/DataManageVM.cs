@@ -3,9 +3,6 @@ using ManageStaff.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -50,7 +47,20 @@ namespace ManageStaff.ViewModels
             }
         }
 
+        // свойства для отдела
         public string DepartmentName { get; set; }
+
+        // свойства для позиции
+        public string PositionName { get; set; }
+        public decimal PositionSalary { get; set; }
+        public int PositionMaxNumber { get; set; }
+        public Department PositionDepartment { get; set; }
+
+        // свойства для сотрудника
+        public string EmployeeName { get; set; }
+        public string EmployeeSurName { get; set; }
+        public string EmployeePhone { get; set; }
+        public Position EmployeePosition { get; set; }
 
         #region COMMANDS TO ADD
         private RelayCommand addNewDepartment;
@@ -69,13 +79,86 @@ namespace ManageStaff.ViewModels
                     else
                     {
                         resultStr = DataWorker.CreateDepartment(DepartmentName);
-                        ShowMessageToUser(resultStr);
                         UpdateAllDataView();
+
+                        ShowMessageToUser(resultStr);
+                        SetNullValuesToProperties();
                         wnd.Close();
                     }
                 });
             }
         }
+
+        private RelayCommand addNewPosition;
+        public RelayCommand AddNewPosition
+        {
+            get
+            {
+                return addNewPosition ?? new RelayCommand(obj => {
+                    Window wnd = obj as Window;
+                    string resultStr = "";
+                    if (PositionName == null || PositionName.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(wnd, "NameBlock");
+                    }
+                    if (PositionSalary == 0)
+                    {
+                        SetRedBlockControl(wnd, "SalaryBlock");
+                    }
+                    if (PositionMaxNumber == 0)
+                    {
+                        SetRedBlockControl(wnd, "MaxNumberBlock");
+                    }
+                    if (PositionDepartment == null)
+                    {
+                        MessageBox.Show("Укажите отдел");
+                    }
+                    else
+                    {
+                        resultStr = DataWorker.CreatePosition(PositionName, PositionSalary, PositionMaxNumber, PositionDepartment);
+                        UpdateAllDataView();
+
+                        ShowMessageToUser(resultStr);
+                        SetNullValuesToProperties();
+                        wnd.Close();
+                    }
+                });
+            }
+        }
+
+        private RelayCommand addNewEmployee;
+        public RelayCommand AddNewEmployee
+        {
+            get
+            {
+                return addNewEmployee ?? new RelayCommand(obj => {
+                    Window wnd = obj as Window;
+                    string resultStr = "";
+                    if (EmployeeName == null || EmployeeName.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(wnd, "NameBlock");
+                    }
+                    if (EmployeeSurName == null || EmployeeSurName.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(wnd, "SurNameBlock");
+                    }
+                    if (EmployeePosition == null)
+                    {
+                        MessageBox.Show("Укажите позицию");
+                    }
+                    else
+                    {
+                        resultStr = DataWorker.CreateEmployee(EmployeeName, EmployeeSurName, EmployeePhone, EmployeePosition);
+                        UpdateAllDataView();
+
+                        ShowMessageToUser(resultStr);
+                        SetNullValuesToProperties();
+                        wnd.Close();
+                    }
+                });
+            }
+        }
+
         #endregion
 
         #region COMMANDS TO OPEN WINDOWS
@@ -169,6 +252,23 @@ namespace ManageStaff.ViewModels
         }
 
         #region UPDATE VIEWS
+        private void SetNullValuesToProperties()
+        {
+            // для сотрудника
+            EmployeeName = null;
+            EmployeeSurName = null;
+            EmployeePhone = null;
+            EmployeePosition = null;
+
+            // для позиции
+            PositionName = null;
+            PositionSalary = 0;
+            PositionMaxNumber = 0;
+            PositionDepartment = null;
+
+            // для отдела
+            DepartmentName = null;
+        }
         private void UpdateAllDataView()
         {
             UpdateAllDepartmentsView();

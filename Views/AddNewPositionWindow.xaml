@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManageStaff.Views"
         mc:Ignorable="d"
-        Title="AddNewPositionWindow" Height="300" Width="300">
+        Title="AddNewPositionWindow" Height="300" Width="300"
+        Name="AddNewPositionWnd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

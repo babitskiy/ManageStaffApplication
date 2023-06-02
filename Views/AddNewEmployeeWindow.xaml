@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManageStaff.Views"
         mc:Ignorable="d"
-        Title="AddNewEmployeeWindow" Height="300" Width="300">
+        Title="AddNewEmployeeWindow" Height="300" Width="300"
+        Name="AddNewEmployeeWnd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -16,7 +17,7 @@
             <TextBlock Text="Name" />
             <TextBox Name="NameBlock" Text="{Binding EmployeeName}" />
             <TextBlock Text="Surname" />
-            <TextBox Name="SurnameBlock" Text="{Binding EmployeeSurname}" />
+            <TextBox Name="SurnameBlock" Text="{Binding EmployeeSurName}" />
             <TextBlock Text="Phone" />
             <TextBox Text="{Binding EmployeePhone}" />
             <TextBlock Text="Position" />
