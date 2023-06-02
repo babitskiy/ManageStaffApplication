@@ -24,7 +24,7 @@
                         <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
                     </ContextMenu>
                 </TabItem.ContextMenu>
-                <ListView x:Name="ViewAllUsers" ItemsSource="{Binding AllEmployees}"  SelectedItem="{Binding SelectedEmployee}">
+                <ListView x:Name="ViewAllEmployees" ItemsSource="{Binding AllEmployees}"  SelectedItem="{Binding SelectedEmployee}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>

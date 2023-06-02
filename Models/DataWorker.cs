@@ -49,7 +49,7 @@ namespace ManageStaff.Models
                 bool checkIsExist = db.Departments.Any(e => e.Name == name);
                 if (!checkIsExist)
                 {
-                    Department newDepartment = new Department();
+                    Department newDepartment = new Department { Name = name };
                     db.Departments.Add(newDepartment);
                     db.SaveChanges();
                     result = "Сделано";

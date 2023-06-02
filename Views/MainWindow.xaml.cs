@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ManageStaff.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ManageStaff.Views
 {
@@ -19,9 +9,17 @@ namespace ManageStaff.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ListView AllDepartmentsView;
+        public static ListView AllPositionsView;
+        public static ListView AllEmployeesView;
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+            AllDepartmentsView = ViewAllDepartments;
+            AllPositionsView = ViewAllPositions;
+            AllEmployeesView = ViewAllEmployees;
         }
     }
 }
