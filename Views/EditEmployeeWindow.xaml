@@ -1,0 +1,40 @@
+﻿<Window x:Class="ManageStaff.Views.EditEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManageStaff.Views"
+        mc:Ignorable="d"
+        Title="EditEmployeeWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+            <TextBlock Text="New name" />
+            <TextBox Text="{Binding EmployeeName}" />
+            <TextBlock Text="New surname" />
+            <TextBox Text="{Binding EmployeeSurname}" />
+            <TextBlock Text="New phone" />
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="EmployeePhone">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock Text="New position" />
+            <ComboBox ItemsSource="{Binding AllPositions}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding EmployeePosition}"/>
+        </StackPanel>
+
+        <Button Grid.Row="1" Content="Edit employee"
+                Command="{Binding EditEmployee}"
+                CommandParameter="{Binding ElementName=EditEmployeeWnd}"/>
+    </Grid>
+</Window>
