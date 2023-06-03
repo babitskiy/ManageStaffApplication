@@ -16,7 +16,7 @@
             <TextBlock Text="New name" />
             <TextBox Text="{Binding EmployeeName}" />
             <TextBlock Text="New surname" />
-            <TextBox Text="{Binding EmployeeSurname}" />
+            <TextBox Text="{Binding EmployeeSurName}" />
             <TextBlock Text="New phone" />
             <TextBox>
                 <TextBox.Text>
