@@ -1,8 +1,10 @@
 ﻿using ManageStaff.Models;
+using ManageStaff.Models.Data;
 using ManageStaff.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -316,5 +318,6 @@ namespace ManageStaff.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+    
     }
 }

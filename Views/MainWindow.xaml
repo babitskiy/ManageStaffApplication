@@ -28,7 +28,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
-                            <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Path=Surname}"/>
+                            <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Path=SurName}"/>
                             <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding Path=Phone}"/>
                             <GridViewColumn Header="Salary" DisplayMemberBinding="{Binding Path=EmployeePosition.Salary}"/>
                             <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Path=EmployeePosition.Name}"/>

@@ -190,5 +190,45 @@ namespace ManageStaff.Models
             }
             return result;
         }
+
+        // получение позиции по id позиции
+        public static Position GetPositionById(int id)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Position pos = db.Positions.FirstOrDefault(p => p.Id == id);
+                return pos;
+            }
+        }
+
+        // получение отдела по id отдела
+        public static Department GetDepartmentById(int id)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Department dep = db.Departments.FirstOrDefault(d => d.Id == id);
+                return dep;
+            }
+        }
+
+        // получение всех пользователей по id позиции
+        public static List<Employee> GetAllEmployeesByPositionId(int id)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                List<Employee> employees = (from employee in GetAllEmployees() where employee.PositionId == id select employee).ToList();
+                return employees;
+            }
+        }
+
+        // получение всех позиций по id отдела
+        public static List<Position> GetAllPositionsByDepartmentId(int id)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                List<Position> positions = (from position in GetAllPositions() where position.DepartmentId == id select position).ToList();
+                return positions;
+            }
+        }
     }
 }

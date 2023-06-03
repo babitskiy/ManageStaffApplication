@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ManageStaff.Models
 {
@@ -15,5 +16,21 @@ namespace ManageStaff.Models
         public List<Employee> Employees { get; set; }
         public int DepartmentId { get; set; }
         public virtual Department Department { get; set; }
+        [NotMapped]
+        public Department PositionDepartment
+        {
+            get
+            {
+                return DataWorker.GetDepartmentById(DepartmentId);
+            }
+        }
+        [NotMapped]
+        public List<Employee> PositionEmployees
+        {
+            get
+            {
+                return DataWorker.GetAllEmployeesByPositionId(Id);
+            }
+        }
     }
 }
